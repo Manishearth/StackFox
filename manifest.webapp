@@ -1,7 +1,7 @@
 {
     "name": "StackFox",
     "version": "0.1",
-    "description": "Stack Exchange app for FIrefox OS",
+    "description": "Stack Exchange app for Firefox OS",
     "launch_path": "/index.html",
     "permissions": {
         "storage":   {
@@ -9,11 +9,10 @@
         }
     },
     "developer": {
-        "name": "Akshat Kedia",
+        "name": "Akshat Kedia, Manish Goregaokar"
     },
     "icons": {
         "60": "/style/icons/icon_60.png",
         "128": "/style/icons/icon_128.png"
     }
 }
-

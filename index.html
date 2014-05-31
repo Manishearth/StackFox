@@ -5,38 +5,48 @@
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <title>StackFox</title>
     <link rel="stylesheet" href="style/lists.css" />
+    <script src="js/handlebars-v1.1.2.js"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/api.js"></script>
-    <style>
-    /* TODO: eventually move this to styles/ */
-    /* site list */
-    #sitelist-ul p {font-size: 8px;} /* does not really look good */
-    #sitelist-ul p:first-of-type {font-size: 18px;}
+    <script src="js/nav.js"></script>
+    <script src="js/pages.js"></script>
 
+    <style>
+    #handlebars {display:none;}
+
+    #sec-site header { font-size: 20px;}
+
+    #sec-sites .sites-name{font-size:14px;}
+    #sec-sites .sites-audience{font-size:8px; line-height: inherit; white-space: pre-line;}
     </style>
 </head>
 <body>
-<section id="sitelist" data-type="list">
-  <header id="sitelist-header">Loading...</header>
-  <ul id = "sitelist-ul">
-  </ul>  
-</section>
+<div id ="content">
+  Loading...
+</div>
+<div id="handlebars">
+  <div id="handlebar-sites" type="text/x-handlebars-template">
+      <section id="sec-sites" data-type="list">
+      <header>Sites</header>
+      <ul>
+        {{#each sites}}
+        <li>
+        <aside class="pack-beginning"><img width=50px src="{{{icon_url}}}" /></aside>
+          <a data-apiname="{{api_site_parameter}}" href="javascript:void(0)"> <p class="sites-name">{{{name}}}</p> 
+          <p class="sites-audience">{{{audience}}}</p></a>
+        </li>
+        {{/each}}
+      </ul>
+      </section>
+  </div>
+  <div id="handlebar-site" type="text/x-handlebars-template">
+      <section id="sec-site" data-type="list">
+      <header>{{{apiname}}}</header>
+      </section>
+  </div>
+</div>
 <script type="text/javascript">
-  Endpoints.sites(function(data){
-    for (datum of data) {
-      var li = document.createElement('li');
-      var a = document.createElement('a');
-      a.href = + "site.html?name="+datum.api_site_parameter
-      a.innerHTML="<p>"+datum.name+"</p><p>"+datum.audience+"</p>"
-      
-      aside=document.createElement('aside')
-      aside.className="pack-end"
-      aside.innerHTML='<img alt="placeholder" src="'+datum.icon_url+'">'
-      li.appendChild(aside)
-      li.appendChild(a)
-      document.getElementById('sitelist-ul').appendChild(li);
-    }
-    document.getElementById('sitelist-header').innerHTML="Sites";
-  })
+Goto.sites()
 </script> 
 </body>
 </html>
