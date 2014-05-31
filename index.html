@@ -4,7 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <title>StackFox</title>
-    <link rel="stylesheet" href="style/lists.css" />
+    <link rel="stylesheet" type="text/css" href="style/lists.css" />
+    <link rel="stylesheet" type="text/css" href="style/progress_activity.css">
+    <link rel="stylesheet" type="text/css" href="style/input_areas.css">
+    <link rel="stylesheet" type="text/css" href="style/headers.css">
     <script src="js/handlebars-v1.1.2.js"></script>
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/api.js"></script>
@@ -22,27 +25,39 @@
 </head>
 <body>
 <div id ="content">
-  Loading...
+  <progress></progress>
 </div>
 <div id="handlebars">
   <div id="handlebar-sites" type="text/x-handlebars-template">
-      <section id="sec-sites" data-type="list">
-      <header>Sites</header>
+    <section role="region">
+      <header>
+        <button><span class="icon icon-menu">menu</span></button>
+        <h1>Sites</h1>
+      </header>
+      <form role="search" class="full">
+        <button type="submit">Send</button>
+        <p>
+          <input type="text" placeholder="Search..." required="">
+          <button type="reset">Clear</button>
+        </p>
+        </form>
+    </section>
+    <section role="region" id="sec-sites" data-type="list">
       <ul>
         {{#each sites}}
         <li>
-        <aside class="pack-beginning"><img width=50px src="{{{icon_url}}}" /></aside>
-          <a data-apiname="{{api_site_parameter}}" href="javascript:void(0)"> <p class="sites-name">{{{name}}}</p> 
+          <aside class="pack-beginning"><img width=50px src="{{{icon_url}}}" /></aside>
+          <a data-apiname="{{api_site_parameter}}" href="javascript:void(0)"> <p class="sites-name">{{{name}}}</p>
           <p class="sites-audience">{{{audience}}}</p></a>
         </li>
         {{/each}}
       </ul>
-      </section>
+    </section>
   </div>
   <div id="handlebar-site" type="text/x-handlebars-template">
-      <section id="sec-site" data-type="list">
+    <section id="sec-site" data-type="list">
       <header>{{{apiname}}}</header>
-      </section>
+    </section>
   </div>
 </div>
 <script type="text/javascript">
