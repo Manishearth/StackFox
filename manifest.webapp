@@ -1,0 +1,19 @@
+{
+    "name": "StackFox",
+    "version": "0.1",
+    "description": "Stack Exchange app for FIrefox OS",
+    "launch_path": "/index.html",
+    "permissions": {
+        "storage":   {
+            "description": "Required for storing and retriving notes."
+        }
+    },
+    "developer": {
+        "name": "Akshat Kedia",
+    },
+    "icons": {
+        "60": "/style/icons/icon_60.png",
+        "128": "/style/icons/icon_128.png"
+    }
+}
+
