@@ -18,5 +18,14 @@ Goto.sites = function(data){
 Goto.site = function(data) {
     Endpoints.site(data.apiname, function(d){
         update('site', {apiname: data.apiname, name: data.name, questions: d})
+        $('.site-qurl').on('click', function() {
+            Nav.to('question', {apiname:data.apiname, id:$(this).data('id')})
+        })
+    })
+}
+
+Goto.question = function(data) {
+    Endpoints.question(data.apiname, data.id, function(d){
+        
     })
 }

@@ -69,3 +69,9 @@ Endpoints.site = function(site, callback) {
                                                     callback(data.items)
   })
 }
+Endpoints.question = function(site, id, callback) {
+  api.fetch('questions/'+id , {site: site, pagesize: 20, order:"desc", sort: "activity"}, 
+            "!WoXb4Y2PGnW6GnhWTC_t(MNSuAbqCymn1MDw*5M", function(data) {
+                                                    callback(data.items)
+  })
+}

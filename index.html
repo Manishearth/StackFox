@@ -61,7 +61,7 @@
         {{#each questions}}
         <li>
         <aside class="pack-beginning">{{score}}</aside>
-          <a href="javascript:void(0)"> <p class="site-q">{{{title}}}</p> 
+          <a href="javascript:void(0)" class="site-qurl" data-id="{{question_id}}"> <p class="site-q">{{{title}}}</p> 
           <p class="q-tags">{{#each tags}}[{{this}}]{{/each}}</p></a>
         </li>
         {{/each}}
