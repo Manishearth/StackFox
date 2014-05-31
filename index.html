@@ -32,7 +32,7 @@
         {{#each sites}}
         <li>
         <aside class="pack-beginning"><img width=50px src="{{{icon_url}}}" /></aside>
-          <a data-apiname="{{api_site_parameter}}" href="javascript:void(0)"> <p class="sites-name">{{{name}}}</p> 
+          <a data-apiname="{{api_site_parameter}}" data-name="{{name}}" href="javascript:void(0)"> <p class="sites-name">{{{name}}}</p> 
           <p class="sites-audience">{{{audience}}}</p></a>
         </li>
         {{/each}}
@@ -41,7 +41,16 @@
   </div>
   <div id="handlebar-site" type="text/x-handlebars-template">
       <section id="sec-site" data-type="list">
-      <header>{{{apiname}}}</header>
+      <header>{{{name}}}</header>
+      <ul>
+        {{#each questions}}
+        <li>
+        <aside class="pack-beginning">{{score}}</aside>
+          <a href="javascript:void(0)"> <p class="site-q">{{{title}}}</p> 
+          <p class="q-tags">{{#each tags}}[{{this}}]{{/each}}</p></a>
+        </li>
+        {{/each}}
+      </ul>
       </section>
   </div>
 </div>

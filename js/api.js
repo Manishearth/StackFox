@@ -45,3 +45,25 @@ Endpoints.sites = function (callback) {
         callback(data2)
     })
 }
+/*
+Returns an array:
+{
+        "tags": ["php", "json"],
+        "owner": {
+            "user_id": 3522725,
+            "user_type": "registered",
+            "display_name": "user3522725"
+        },
+        "answer_count": 1,
+        "score": 0,
+        "last_activity_date": 1401547194,
+        "question_id": 23971265,
+        "title": "blah"
+}
+*/
+Endpoints.site = function(site, callback) {
+  api.fetch('questions' , {site: site, pagesize: 20, order:"desc", sort: "activity"}, 
+            "!1PUEWfbg-(rVIo(iy.1XGkGfm4SJhhIUg", function(data) {
+                                                    callback(data.items)
+  })
+}
