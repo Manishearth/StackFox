@@ -11,11 +11,12 @@ API.prototype.fetch = function(endpoint, data, filter, callback) {
     }
     dataQuery=""
     for (key in data) {
-        dataQuery += "&"+encodeURIComponent(key)+"="+encodeURIComponent(data[key])
+        dataQuery += "&" + encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
     }
     xhr.open("get", this.apiURL + endpoint + "?key=" + this.key + "&filter=" + filter+dataQuery)
     xhr.send()
 }
+
 api = new API();
 
 var Endpoints = {};
@@ -45,6 +46,7 @@ Endpoints.sites = function (callback) {
         callback(data2)
     })
 }
+
 /*
 Returns an array:
 {
