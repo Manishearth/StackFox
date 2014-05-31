@@ -25,7 +25,7 @@
     for (datum of data) {
       var li = document.createElement('li');
       var a = document.createElement('a');
-      a.href = datum.api_site_parameter+".html"
+      a.href = + "site.html?name="+datum.api_site_parameter
       a.innerHTML="<p>"+datum.name+"</p><p>"+datum.audience+"</p>"
       
       aside=document.createElement('aside')
