@@ -23,18 +23,19 @@ var Endpoints = {};
 /*
 Returns an array of data:
 {
-    api_site_parameter: "stackoverflow"
-    high_resolution_icon_url: "http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png"
-    icon_url: "http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png"
-    logo_url: "http://cdn.sstatic.net/stackoverflow/img/logo.png"
-    name: "Stack Overflow"
-    site_type: "main_site"
-    site_url: "http://stackoverflow.com"
+      "high_resolution_icon_url": "http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png",
+      "icon_url": "http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png",
+      "audience": "professional and enthusiast programmers",
+      "site_url": "http://stackoverflow.com",
+      "api_site_parameter": "stackoverflow",
+      "logo_url": "http://cdn.sstatic.net/stackoverflow/img/logo.png",
+      "name": "Stack Overflow",
+      "site_type": "main_site"
 }
 */
 
 Endpoints.sites = function (callback) {
-    api.fetch("sites", {pagesize: 200},"!*l7am1hhhNWy0gYFMR(C8vQ7", function(data){
+    api.fetch("sites", {pagesize: 200},"!*l7am1hhhNWy0gVy6Tw6o3-c", function(data){
         var data2=[]
         for (key in data.items) {
             if(data.items[key].site_type == "main_site") {
