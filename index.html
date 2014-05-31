@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <title>StackFox</title>
+    <link rel="stylesheet" href="style/lists.css" />
+    <script src="js/api.js"></script>
+    <style>
+    /* TODO: eventually move this to styles/ */
+    /* site list */
+    #sitelist-ul p {font-size: 8px;} /* does not really look good */
+    #sitelist-ul p:first-of-type {font-size: 18px;}
+
+    </style>
+</head>
+<body>
+<section id="sitelist" data-type="list">
+  <header id="sitelist-header">Loading...</header>
+  <ul id = "sitelist-ul">
+  </ul>  
+</section>
+<script type="text/javascript">
+  Endpoints.sites(function(data){
+    for (datum of data) {
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = datum.api_site_parameter+".html"
+      a.innerHTML="<p>"+datum.name+"</p><p>"+datum.audience+"</p>"
+      
+      aside=document.createElement('aside')
+      aside.className="pack-end"
+      aside.innerHTML='<img alt="placeholder" src="'+datum.icon_url+'">'
+      li.appendChild(aside)
+      li.appendChild(a)
+      document.getElementById('sitelist-ul').appendChild(li);
+    }
+    document.getElementById('sitelist-header').innerHTML="Sites";
+  })
+</script> 
+</body>
+</html>
